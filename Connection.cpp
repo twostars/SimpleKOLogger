@@ -468,7 +468,7 @@ void Connection::ConnectionData::decompress_packet(
 	}
 	else
 	{
-		Compression::LZF::Decompress(&pkt->Buffer[offset], compressed_length, original_length);
+		decompressed_data = Compression::LZF::Decompress(&pkt->Buffer[offset], compressed_length, original_length);
 		if (decompressed_data == nullptr)
 		{
 			decompressed_data = Compression::PKWARE::Decompress(&pkt->Buffer[offset], compressed_length, original_length);
